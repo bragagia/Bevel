@@ -1,39 +1,49 @@
 <html>
-  <head>
+
+<head>
+    <link href="css/style.css" rel="stylesheet" />
+
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.mousewheel.js"></script>
     <script src="js/quantize.js"></script>
     <script src="js/color-thief.js"></script>
     <script src="js/dummy.js"></script>
     <script src="js/script.js"></script>
+</head>
 
-    <link href="css/style.css" rel="stylesheet" />
-  </head>
+<body>
+    <div id="full-overlay" class="overlay hidden"></div>
+    <div id="gradient-overlay" class="overlay hidden"></div>
 
-  <body>
-    <!--<h1>Login to <span id="hostname">hostname</span></h1>-->
-    <div id="user-list-wrapper">
-      <div id="user-list" data-shift="0"></div>
-    </div>
-
-    <div id="password-container" class="hidden">
-      <input id="password" type="password" />
-      <div id="authentication-message">Invalid password, please try again</div>
-    </div>
-
-		<div id="session-list-hider">
-      &nbsp;
-      <div id="session-list-floater">
-        &nbsp;
-        <div id="session-list"/>
-      </div>
-		</div>
+    <div id="big-clock"></div>
 
     <div id="controls">
-      <div class="system-button">Shutdown</div>
-      <div class="system-button">Restart</div>
-      <div class="system-button">Hibernate</div>
-      <div class="system-button">Suspend</div>
+        <img class="system-button" src="" data-action="suspend" \>
+        <img class="system-button" src="" data-action="hibernate" \>
+        <img class="system-button" src="" data-action="restart" \>
+        <img class="system-button" src="" data-action="shutdown" \>
     </div>
-  </body>
+
+    <div id="login-wrapper" class="hidden">
+        <!--<h1>Login to <span id="hostname">hostname</span></h1>-->
+        <div id="user-list-wrapper">
+            <div id="user-list" data-shift="0"></div>
+        </div>
+
+        <div id="password-container" class="hidden">
+            <input id="password" type="password" autofocus />
+            <div id="authentication-message">Invalid password, please try again</div>
+        </div>
+
+        <div id="session-list-hider">
+            &nbsp;
+            <div id="session-list-floater">
+                &nbsp;
+                <div id="session-list"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>

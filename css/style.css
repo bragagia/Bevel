@@ -1,303 +1,315 @@
 * {
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
 }
 
 canvas {
-  display: none;
+    display: none;
 }
 
 input[type="text"], input[type="password"] {
-  outline: none;
+    outline: none;
 }
 
 html {
-  height: 100%;
-	background-image: url("/usr/share/backgrounds/login.jpg");
-	background-size: cover;
-  overflow: hidden;
+    height: 100%;
+    background-image: url("/usr/share/backgrounds/login.jpg");
+    background-size: cover;
+    overflow: hidden;
 }
 
 body {
-  color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 100%);
+    display: block;
+    font-size: 16px/1.625em;
+    font-family: 'Source Code Pro', 'Caviar Dreams', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-  opacity: 0;
+.overlay {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 
-  font: 16px/1.625em 'sans';
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.overlay.hidden {
+    opacity: 0;
+}
+
+#gradient-overlay {
+    background: linear-gradient(#000000, #ffffff);
+}
+
+#login-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#login-wrapper.hidden {
+    visibility: hidden;
+    opacity: 0;
 }
 
 #user-list-wrapper {
-  position: absolute;
-  
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
 }
 
 #authentication-message {
-  opacity: 0;
-  -webkit-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
+    opacity: 0;
+    -webkit-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    -moz-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
 }
 
 #authentication-message.error {
-  color: hsl(359, 100%, 60%);
+    color: hsl(359, 100%, 60%);
 }
 
 #authentication-message.active {
-  opacity: 1;
+    opacity: 1;
 }
 
 label {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  text-align: center;
-
-  font-size: 50px;
-  font-family: 'sans';
-  color: white;
-  font-weight: 600;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
 }
 
 h1 {
-  font-size: 72px;
-  line-height: 0.5em;
-  margin-bottom: 0.5em;
+    font-size: 72px;
+    line-height: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 input {
-  -webkit-user-select: text;
-
-  height: 32px;
-  font-size: 20px;
-	margin-top: 30px;
-
-  /*border: 2px solid hsl(0, 0%, 25%);*/
-	border: none;
-  background-color: rgba(255, 255, 255, 0.8);
-
-	color: #888888;
-
-  padding-left: 10px;
-  padding-right: 10px;
-  
-  -webkit-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-
-  border-radius: 7px;
+    -webkit-user-select: text;
+    height: 32px;
+    font-size: 20px;
+    margin-top: 30px;
+    /*border: 2px solid hsl(0, 0%, 25%);*/
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #888888;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    -moz-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    border-radius: 7px;
 }
 
 input::-webkit-input-placeholder {
-  /*position: relative;
+    /*position: relative;
   top: -2px;*/
-
-  font-family: 'sans';
 }
 
 #background {
-  z-index: -1;
-  position: absolute;
+    z-index: -1;
+    position: absolute;
 }
 
 #user-list, #password-container {
-  position: absolute;
-
-  top: 50%;
-  left: 0;
-  right: 0;
-
-  height: 150px;
-
-  margin-top: -75px;
-  text-align: center;
-
-  -webkit-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 150px;
+    margin-top: -75px;
+    text-align: center;
+    -webkit-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    -moz-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
 }
 
 #password-container {
-  height: 40px;
-
-  margin-top: 100px;
+    height: 40px;
+    margin-top: 70px;
 }
 
 #password {
-  position: relative;
+    position: relative;
 }
 
 .user {
-  position: relative;
-  display: inline-block;
-
-  vertical-align: top;
-
-  text-align: center;
-  height: 130px;
-  width: 130px;
-  padding: 10px;
-
-  -webkit-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-
-  opacity: 0.7;
-  cursor: pointer;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    height: 130px;
+    width: 130px;
+    padding: 10px;
+    -webkit-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    -moz-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    opacity: 0.7;
+    cursor: pointer;
 }
 
 .hidden {
-  opacity: 0.25;
+    opacity: 0.25;
 }
 
 #password-container.hidden {
-  opacity: 0;
+    opacity: 0;
 }
 
 .user:not(.hidden):hover {
-  opacity: 0.85;
+    opacity: 0.85;
 }
 
 .user.hidden:hover {
-  opacity: 0.35;
+    opacity: 0.35;
 }
 
 .user.active:hover {
-  opacity: 1.0;
+    opacity: 1.0;
 }
 
 .user.active {
-  opacity: 1;
+    opacity: 1;
 }
 
 .user-name {
-  font-size: 20px;
-  font-weight: 600;
-  font-family: 'sans';
-	text-shadow: 0px 2px 7px #000000;
-  color: white;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0,0,0,.7);
+    color: white;
 }
 
 .user-face {
-  display: none;
+    display: none;
 }
 
 .bubble {
-  display: block;
-
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-
-  width: 96px;
-  height: 96px;
-  
-  background-color: hsl(175, 29%, 61%);
-  overflow: hidden;
-
-  border-radius: 100%;
-
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 96px;
+    height: 96px;
+    background-color: hsl(175, 29%, 61%);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 100%;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
 }
 
 #controls {
-  display: none;
-
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  overflow: hidden;
-  text-align: center;
+    display: flex;
+    position: absolute;
+    top: 6em;
+    padding: 1.3em;
+    right: 0;
+    left: 0;
+    flex-direction: row-reverse;
+    align-items: flex-end;
 }
 
 .system-button {
-  position: relative;
-  bottom: -10px;
-
-  opacity: 0.65;
-
-  height: 35px;
-  display: inline-block;
-  
-  color: black;
-  cursor: pointer;
-
-  padding: 10px;
-
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-
-  margin-right: 10px;
-  -webkit-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
+    display: block;
+    position: relative;
+    top: 0;
+    width: 60px;
+    object-fit: contain;
+    cursor: pointer;
+    -webkit-transition: all 0.1s ease-in-out;
+    transform-origin: center;
 }
 
-.system-button:hover {
-  bottom: 0;
-  opacity: 1;
+.system-button:nth-of-type(even) {
+    transform: translate(28px, 80%);
+}
+
+.system-button:nth-child(n+3) {
+    right: -56px;
+}
+
+.system-button:nth-of-type(odd):hover {
+    transform: scale(1.1, 1.1);
+}
+
+.system-button:nth-of-type(even):hover {
+    transform: translate(28px, 80%) scale(1.1, 1.1);
 }
 
 #session-list-hider {
-  z-index: 10;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 90%;
-
-  overflow: hidden;
-  text-align: center;
-
-  -webkit-mask-image: -webkit-linear-gradient(left, rgba(30,87,153,0) 0%,rgba(255,255,255,1) 50%,rgba(125,185,232,0) 100%);
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 80%;
+    overflow: hidden;
+    text-align: center;
+    -webkit-mask-image: -webkit-linear-gradient(left, rgba(30, 87, 153, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(125, 185, 232, 0) 100%);
 }
 
 #session-list-floater {
-  position:fixed;
-  left: 0;
-  right: 0;
-  bottom:10px;
-
-  overflow:hidden;
-  display:inline;
-
-  -webkit-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    overflow: hidden;
+    display: inline;
+    -webkit-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    -moz-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
 }
 
 #session-list {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  white-space: nowrap;
-
-  opacity: 0;
-
-  -webkit-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    white-space: nowrap;
+    opacity: 0;
+    -webkit-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    -moz-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
 }
 
 .session {
-  cursor: pointer;
-
-  opacity: 0.50;
-
-  display: inline;
-
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-
-  -webkit-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
-  -moz-transition: all 0.3s cubic-bezier(.24,.59,.46,.93);
+    cursor: pointer;
+    opacity: 0.50;
+    display: inline;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    -webkit-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
+    -moz-transition: all 0.3s cubic-bezier(.24, .59, .46, .93);
 }
 
 .session.active {
-  opacity: 1;
+    opacity: 1;
+}
+
+#big-clock {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0 .2em 0 0;
+    text-align: right;
+    font-size: 5em;
 }

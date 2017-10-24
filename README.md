@@ -1,26 +1,18 @@
-Bevel
+BevelHex
 =====
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](http://standardjs.com)
+
 
 A super awesome LightDM Webkit greeter theme.
 
-This is a fork of Blender3D's excellent theme. At the moment my changes amount
-to a few simple bugfixes and a restructuring of the javascript which provides
-the theme's functionality. I have vague plans to improve the theme further.
+This is a fork of Blender3D's excellent theme, with additional bugfixes from bragagia.
 
 Installation
 ------------
 
-1. Clone this repository into /usr/share/lightdm-webkit/themes/bevel
-2. Set the theme in /etc/lightdm/lightdm-webkit-greeter.conf
-3. ~~Set your default session in /etc/lightdm/lightdm.conf, as currently this
-   theme does not have any kind of a session chooser.~~ I fixed this!
+1. Clone this repository into `/usr/share/lightdm-webkit/themes/bevelhex`.
+2. Set the theme in `/etc/lightdm/lightdm-webkit-greeter.conf`. Hence set the theme to `bevelhex`.
+3. Specify a folder of backgrounds you want in `/etc/lightdm/lightdm-webkit-greeter.conf`. _PS! This folder has to be accessible from lightdm-user._
 
 Obviously you'll need lightdm and lightdm-webkit-greeter.
-
-Screenshots
------------
-
-![Overview with multiple users](https://github.com/jqln-0/Bevel/raw/screenshots/images/overview.png)
-
-![Logging in](https://github.com/jqln-0/Bevel/raw/screenshots/images/login.png)
-
